@@ -1,0 +1,30 @@
+{% extends 'school/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="starter-page" style="background-image: url('{% static 'school/assets/welcomepage.jpeg' %}');">
+        <div class="welcome">
+            <h1>Your Checklist</h1>
+        </div>
+    </div>
+    <div class="list-page">
+        <a href="{% url 'add_checklist' %} "><h2 class="title-page">Create Check</h2></a>
+        <div class="page">
+        <table class="checklist-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date/Time</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for checklist in checklists %}
+                <tr class="lists">
+                    <td><a href="{% url 'delete_checklist' checklist.id %}">{{ checklist.check_name }}</a></td>
+                    <td>{{ checklist.timestamp }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+{% endblock %}

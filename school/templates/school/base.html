@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'school/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>SchoolFun</title>
+    {% block head %} {% endblock %}
+</head>
+<body>
+    <div>
+        {% if user.is_authenticated %}
+        <header id="header">
+                <nav class=id="nav">
+                <div class="nav-center">
+                    <a href="{% url 'home'%}"><h1 id="nav-logo">SchoolFun</h1></a>
+                    <div class="menu-toggle" id="mobile-menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                    <ul class="links">
+                        <li>
+                            <a class="nav-links" href="{% url 'home'%}"><i class="fa fa-home"></i> Home</a>
+                        </li>
+                        <li>
+                            <a class="nav-links" href="{% url 'work'%}"><i class="fa fa-book"></i> Work</a>
+                        </li>
+                        <li>
+                            <a class="nav-links" href="{% url 'schedule' %}"><i class="fa fa-calendar"></i> Schedule</a>
+                        </li>
+                        <li>
+                            <a class="nav-links" href="{% url 'checklist' %}"><i class="fa fa-check-square"></i> Checklist</a>
+                        </li>
+                        <li>
+                            <a class="logout nav-links nav-links-btn" href="/logout">SignOff</a>
+                        </li>
+                    </ul>
+                </nav>
+                </div>
+            {% endif %}
+        </header>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer>
+            <h5 class="footer">SchoolFun &copy 2021</h5>
+        </footer>
+    </div>
+    <script src="{% static 'school/main.js' %}"></script>
+</body>
+</html>

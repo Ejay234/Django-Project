@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+
+* {
+    font-family: 'Irish Grover', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100vh;
+}
+
+/* HEADER & NAV BAR CSS */
+#header {
+    background-color: #182848;
+    position: fixed;
+    width: 100%;
+}
+
+#nav-logo {
+    color: #ECE9E6; 
+    color: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  
+    color: linear-gradient(to right, #FFFFFF, #ECE9E6); 
+    font-size: 35px;
+}
+
+.nav-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.links {
+    list-style: none;
+    display: flex;
+    margin-right: 20px;
+}
+
+.nav-links {
+    color: whitesmoke;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 15px;
+}
+
+.nav-links:hover {
+    color: #4b6cb7;
+    transition: all 0.2s ease-out;
+}
+
+.nav-links-btn {
+    background-color: #4b6cb7;
+    color: whitesmoke;
+    padding: 6px 16px;
+    border-radius: 5px;
+}
+
+.nav-links-btn:hover {
+    background-color: whitesmoke;
+    color: #182848;
+    padding: 5px 15px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background: whitesmoke;
+}
+
+@media screen and (max-width: 768px) {
+    #header {
+        position: fixed;
+        height: 80px;
+        width: 100%;
+    }
+    .links {
+        display: grid;
+        grid-template-columns: auto;
+        background: #182848;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        opacity: 0;
+        transition: all 0.5s ease;
+    }
+    #nav-logo { 
+        display: flex;
+        justify-content: start;
+        align-items: self;
+        font-size: 30px;
+    }
+    .links.active {
+        background: #182848;
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+    }
+    .nav-links {
+        text-align: center;
+        line-height: 60px;
+        width: 100%;
+        display: table;
+    }
+    .nav-links:hover{
+        background-color: whitesmoke;
+        color: #182848;
+        transition: all 0.4s ease-out;
+    }
+    #nav {
+        width: 100%;
+    }
+    .nav-links-btn {
+        border: none;
+        padding: 0;
+        border-radius: 0;
+        background-color: #4b6cb7;
+        color: whitesmoke;
+        transition: all 0.4s ease-out
+    }
+    .nav-links-btn:hover {
+        border: none;
+        padding: 0;
+        border-radius: 0;
+        background-color: whitesmoke;
+        color: #4b6cb7;
+        transition: all 0.4s ease-out;
+    }
+    #mobile-menu {
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+    .menu-toggle .bar {
+        display: block;
+        cursor: pointer;
+    }
+    .menu-toggle:hover {
+        cursor: pointer;
+    }
+    #mobile-menu.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    #mobile-menu.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    #mobile-menu.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* FORM CSS */
+form * {
+    display: block;
+}
+
+form label {
+    padding-top: 20px;
+    color: #182848;
+}
+
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #4b6cb7; 
+    background: -webkit-linear-gradient(to top, #182848, #4b6cb7);  
+    background: linear-gradient(to top, #182848, #4b6cb7); 
+}
+
+.login-form {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.login-logo {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 32px;
+    color: #0F2027;  
+    color: -webkit-linear-gradient(to bottom, #2C5364, #203A43, #0F2027);  
+    color: linear-gradient(to bottom, #2C5364, #203A43, #0F2027);
+}
+
+.login-form h2 {
+    color: #182848;
+    margin: 3px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+input[type=submit], button {
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #182848;
+    color: whitesmoke;
+    letter-spacing: 2px;
+    padding: 3px 5px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.login-form form .errorlist {
+    color: red;
+    letter-spacing: 1px;
+}
+
+hr {
+    margin: 20px 0;
+    width: 100%;
+    border: 1px solid #141E30;
+}
+
+.signup-container {   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup {
+    border-radius: 5px;
+    background: #182848;
+    color: whitesmoke;
+    padding: 5px;
+}
+
+/* CSS MEDIA */
+@media screen and (max-width: 768px) {
+    .login-form {
+        width: 90%;
+        line-height: 25px;
+    }
+}
+/* FOOTER CSS */
+footer {
+    padding: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-transform: lowercase;
+    background-color: #182848;
+    color: whitesmoke;
+    letter-spacing: 2px;
+}
+
+/* HOME CSS */
+.starter-page, .work-page, .checklist-page, .list-page, .form-page {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #141E30;
+    background: -webkit-linear-gradient(to bottom, #243B55, #141E30); 
+    background: linear-gradient(to bottom, #243B55, #141E30); 
+}
+
+.schedule-page {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #141E30;  
+    background: -webkit-linear-gradient(to top, #243B55, #141E30);  
+    background: linear-gradient(to top, #243B55, #141E30); 
+}
+
+.welcome {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 30%;
+    padding: 20px;
+    background-color: #182848;
+    color: whitesmoke;
+    border-radius: 5px;
+    letter-spacing: 3px;
+}
+
+.title-page {
+    color: whitesmoke;
+    margin: 20px;
+    padding: 10px;  
+}
+
+.page {
+    display: grid;
+    align-items: flex-start;
+    width: 80%;
+    height: 70%;
+    margin: 50px;
+    background-color: #182848;
+    color: whitesmoke;
+    border-radius: 10px;
+}
+
+.work-table, .checklist-table, .schedule-table {
+    margin: 20px;
+    width: auto;
+}
+
+td {
+    border: 1px solid whitesmoke;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .work-page, .schedule-page, .checklist-page, .list-page {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .page {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 5px;
+    }
+    .work-table, .schedule-table, .checklist-table {
+        display: gird;
+    }
+    .welcome {
+        width: 90%;
+    }
+}
+
+/* LIST CSS */
+.list-page {
+    background: #141E30;
+    background: -webkit-linear-gradient(to bottom, #243B55, #141E30);  
+    background: linear-gradient(to bottom, #243B55, #141E30); 
+}
+
+.lists a {
+    color:#4b6cb7;
+}
+
+/* CREATE CSS */
+.create-page, .delete-page {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.create-page h2, .delete-page h2 {
+    margin: 20px;
+}
+.delete-page p{
+    font-size: 30px;
+    text-align: center;
+    line-height: 40px;
+}
+
+@media screen and (max-width: 768px) {
+    .create-page, .delete-page {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+    }
+    .create-page h2, .delete-page h2 {
+        margin: 20px;
+    }
+    .delete-page p{
+        font-size: 30px;
+    }
+}

@@ -1,0 +1,76 @@
+{% extends 'school/base.html' %}
+{% load static%}
+{% block content %}
+    <div class="starter-page" style="background-image: url('{% static 'school/assets/welcomepage.jpeg' %}');">
+        <div class="welcome">
+            <h1>Welcome to SchoolFun, {{ user.username }}!</h1>
+        </div>
+    </div>
+    <div class="work-page">
+        <h2 class="title-page">Works</h2>
+        <div class="page">
+            <table class="work-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Subject</th>
+                        <th>Due Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for work in works %}
+                    <tr>
+                        <td>{{ work.name }}</td>
+                        <td>{{ work.subject }}</td>
+                        <td>{{ work.due_date }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="schedule-page">
+        <h2 class="title-page">Schedule</h2>
+        <div class="page"> 
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Classes</th>
+                        <th>Subject</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for schedule in schedules %}
+                    <tr>
+                        <td>{{ schedule.class_name }}</td>
+                        <td>{{ schedule.subject }}</td>
+                        <td>{{ schedule.time }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="checklist-page">
+        <h2 class="title-page">Checklist</h2>
+        <div class="page">
+            <table class="checklist-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date/Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for checklist in checklists %}
+                    <tr>
+                        <td>{{ checklist.check_name }}</td>
+                        <td>{{ checklist.timestamp }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

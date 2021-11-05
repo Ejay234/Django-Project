@@ -1,0 +1,32 @@
+{% extends 'school/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="starter-page" style="background-image: url('{% static 'school/assets/welcomepage.jpeg' %}');">
+        <div class="welcome">
+            <h1>Your Schedules</h1>
+        </div>
+    </div>
+    <div class="list-page">
+        <a href="{% url 'add_schedule' %} "><h2 class="title-page">Create Schedule</h2></a>
+        <div class="page">
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>Classes</th>
+                    <th>Subject</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for schedule in schedules %}
+                <tr class="lists">
+                    <td><a href="{% url 'delete_schedule' schedule.id %}">{{ schedule.class_name }}</a></td>
+                    <td>{{ schedule.subject }}</td>
+                    <td>{{ schedule.time }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+{% endblock %}
